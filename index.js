@@ -24,7 +24,7 @@ const { conn, Country } = require('./src/db');
 
 // Syncing all the models at once.
 conn.sync({ force: false}).then(() => {
-  server.listen(3001, async() => {
+  server.listen(process.env.PORT, async() => {
     console.log('%s listening at 3001');
     try{
         const apiCountries = await axios.get('https://restcountries.com/v3/all');
